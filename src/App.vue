@@ -11,7 +11,7 @@
             <h1 class="title">Restante</h1>
             <v-layout row wrap>
               <v-flex>
-                <h1 class="display-4 teal--text text-xs-center">
+                <h1 class="display-4 teal--text text-xs-center pt-5">
                   {{days}}
                   <span class="display-1">dias</span>
                 </h1>
@@ -31,8 +31,8 @@
             </v-layout>
             <v-layout>
               <v-flex>
-                <h1 class="title">Passado</h1>
-                <h1 class="display-4 red--text text-xs-center">
+                <h1 class="title pt-5">Passado</h1>
+                <h1 class="display-4 red--text text-xs-center pt-5">
                   {{daysPassed}}
                   <span class="display-1">dias</span>
                 </h1>
@@ -112,6 +112,16 @@ export default {
       news: [
         {
           title:
+            "Bolsonaro novamente transparece preconceito contra nordestinos e chama assessor de “pau de arara”",
+          text:
+            "Em vídeo divulgado pelo Twitter “Museu da Direita Histérica”, Bolsonaro aparece mais uma vez transparecendo preconceitos contra a população do Nordeste. Após áudio em que chama nordestinos de “paraíba”, ele debochou de assessor.",
+          link:
+            "https://revistaforum.com.br/bolsonaro-novamente-transparece-preconceito-contra-nordestinos-e-chama-assessor-de-pau-de-arara/",          font: "Revista Forum",
+          color: "blue",
+          date: "22/07/19"
+        },
+        {
+          title:
             "Bolsonaro diz que divulgação de dados sobre desmatamento prejudica o Brasil",
           text:
             "Dados do Inpe apontam que o desmatamento na Amazônia aumentou 88% em comparação com o ano passado. Presidente acusou o órgão de mentir e de estar 'agindo a serviço de uma ONG'. Ricardo Magnus Osório Galvão, diretor do Inpe, negou as acusações de Bolsonaro.",
@@ -138,11 +148,11 @@ export default {
     countdown() {
       setInterval(() => {
         let today = new Date();
-        let smallDay = new Date(2019, 0, 1, 1);
-        let BigDay = new Date(2022, 0, 1, 1);
+        let sadDay = new Date(2019, 0, 1, 1);
+        let bigDay = new Date(2023, 0, 1, 1);
         let msPerDay = 24 * 60 * 60 * 1000;
-        let timeLeft = BigDay.getTime() - today.getTime();
-        let timePassed = today.getTime() - smallDay.getTime();
+        let timeLeft = bigDay.getTime() - today.getTime();
+        let timePassed = today.getTime() - sadDay.getTime();
         let e_daysLeft = timeLeft / msPerDay;
         let e_daysPassed = timePassed / msPerDay;
         let e_hrsLeft = (e_daysLeft - this.days) * 24;
@@ -216,6 +226,7 @@ export default {
     }
   },
   mounted() {
+    document.title = "bolsometro.com.br"
     this.countdown();
     this.chartjs();
   }
