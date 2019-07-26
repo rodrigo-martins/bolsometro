@@ -1,7 +1,10 @@
 <template>
   <v-app>
     <v-toolbar app>
-      <h6 class="title">bolsometro.com.br</h6>
+      <v-avatar>
+        <img src="./assets/icon.png" alt="Bolsonaro" />
+      </v-avatar>
+      <h6 class="title"> Bolsômetro</h6>
     </v-toolbar>
     <v-content>
       <v-container>
@@ -110,13 +113,25 @@ export default {
       seconds: 0,
       chart: null,
       news: [
+         {
+          title:
+            "Bolsonaro anuncia que quer dar fim à Ancine",
+          text:
+            "O presidente Jair Bolsonaro (PSL) anunciou, nesta quinta-feira 25, que buscará a extinção da Agência Nacional do Cinema (Ancine). A afirmação se deu em transmissão ao vivo em sua rede social.",
+          link:
+            "https://www.cartacapital.com.br/politica/bolsonaro-anuncia-que-quer-dar-fim-a-ancine",
+          font: "Revista Forum",
+          color: "red",
+          date: "25/07/19"
+        },
         {
           title:
             "Bolsonaro novamente transparece preconceito contra nordestinos e chama assessor de “pau de arara”",
           text:
             "Em vídeo divulgado pelo Twitter “Museu da Direita Histérica”, Bolsonaro aparece mais uma vez transparecendo preconceitos contra a população do Nordeste. Após áudio em que chama nordestinos de “paraíba”, ele debochou de assessor.",
           link:
-            "https://revistaforum.com.br/bolsonaro-novamente-transparece-preconceito-contra-nordestinos-e-chama-assessor-de-pau-de-arara/",          font: "Revista Forum",
+            "https://revistaforum.com.br/bolsonaro-novamente-transparece-preconceito-contra-nordestinos-e-chama-assessor-de-pau-de-arara/",
+          font: "Revista Forum",
           color: "blue",
           date: "22/07/19"
         },
@@ -226,7 +241,6 @@ export default {
     }
   },
   mounted() {
-    document.title = "bolsometro.com.br"
     this.countdown();
     this.chartjs();
   }
